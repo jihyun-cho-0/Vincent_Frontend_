@@ -77,7 +77,6 @@
       curSlide.classList.add('slide_active');
       pageDots[curIndex].classList.add('dot_active');
     });
-  
     /** Pagination Button Event */
     let curDot;
     Array.prototype.forEach.call(pageDots, function (dot, i) {

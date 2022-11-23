@@ -11,6 +11,7 @@ const prev = document.querySelector(".prev");
 var idx_src_arr = {};
 var current_idx = 0;
 
+
 //clicking on image item
 galleryItem.forEach((item, i) => {
   idx_src_arr[i] = item.children[0].src;

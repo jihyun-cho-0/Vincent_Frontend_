@@ -1,6 +1,90 @@
+
+h3,
+p,
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+h3 {
+  font-family: 'Balsamiq Sans', cursive;
+  font-size: 2vw;
+  letter-spacing: 15px;
+  color: #3bbdc7;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+}
+
+.star {
+  border: 1px solid purple;
+  font-size: 3vw;
+  animation: spin 7s cubic-bezier(.8, 0, .2, .8) infinite;
+  transform: rotate(360deg);
+  transform-origin: center center;
+}
+
+@keyframes spin {
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.desc {
+  padding: 25px 0px;
+  /*   background-color: #eee; */
+  letter-spacing: 0.1em;
+  font-size: 1.5vw;
+}
+
+nav {
+  border: 1px solid yellow;
+  width: 100%;
+  display: block;
+  /* margin: 0.5vw auto; */
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+}
+
+nav ul li {
+  padding: 15px 0px;
+}
+
+nav ul li a {
+  border : 1px solid blue;
+  text-decoration: none;
+  color: #999;
+  transition: 150ms ease-in-out;
+  letter-spacing: 1px;
+}
+
+nav ul li a:hover {
+  border : 1px solid green;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: #e74b24;
+}
+
+
+
+a.active {
+  color: #e74b24;
+}
+
+
+
+
 /* 필터 슬라이드의 전체 컨테이너 */
 .filter-container {
-    border: 1px solid orange;
+    border: 2px solid orange;
     /* padding-top: 25px; */
     display: flex;
     flex-wrap: wrap;
@@ -15,11 +99,11 @@
 /* 필터만  */
 #contenar{
     /* margin: 10px; */
-    border: 3px solid palevioletred;
+    border: 3px solid rgb(0, 54, 249);
     width: 600px;
     height: max-content;
     position: relative;
-    top: 50%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%,-50%);
     overflow: hidden;
@@ -27,7 +111,7 @@
     
 }
 /* 필터 목록만 있는 컨테이너 */
-#cards{
+#filters{
     border: 3px solid rgb(111, 36, 61);
 
     width: max-content;
@@ -39,8 +123,9 @@
 
 
 /* 각각의 필터 카드 */
-.card{
-    width: 200px;
+.filter{
+    border: 3px solid rgb(236, 130, 165);
+    width: 100px;
     height: 90px;
     border-radius: 5px;
     background: #00adb5;
@@ -49,9 +134,29 @@
     overflow: hidden;
 }
 
-.card:first-of-type{
+.filter:first-of-type{
     margin-left: 0px;
 }
+
+/* 필터 카드 안 이미지 */
+.filter-item {
+    width: 100px;
+    height: 90px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    transition: 200ms ease-in-out;
+    /* bor
+    der-radius: 20px; */
+  }
+  .filter .filter-example {
+width:100%;
+    height:100%;
+    object-fit:cover;
+  }
 
 
 /* 필터카드 목록 하단 슬라이더 */
@@ -84,4 +189,17 @@ input#slid {
     border-radius: 50%;
     top: -4px;
     position: absolute;
+}
+
+
+
+
+/* 필터 추가 모달창 */
+ /* 모달창 만들기 */
+
+/* 버튼 누르면 필터 박스 추가 */
+.filter-plus-button{
+    float: right;
+    width: 50px;
+    height: 50px;
 }

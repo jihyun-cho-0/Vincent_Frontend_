@@ -5,7 +5,7 @@ body {
   box-sizing: border-box;
   text-align: center;
   font-family: "Avenir Next", Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
-  padding: 25px;
+  /* padding: 25px; */
 }
 
 h3,
@@ -90,7 +90,7 @@ a.active {
 
 /*GALLERY*/
 .gallery-container {
-  border: 1px solid orange;
+  border: 010px solid orange;
   /* padding-top: 25px; */
   display: flex;
   flex-wrap: wrap;
@@ -247,7 +247,7 @@ footer a {
 
 /* 슬라이드 */
 #container {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   width: 1000px;
   margin: auto;
 }
@@ -258,7 +258,7 @@ footer a {
   position: relative;
   width: 600px;
   margin: auto;
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
 }
 
 .slide_box {
@@ -362,3 +362,4 @@ footer a {
   width: 100%;
   height: 100%;
 }
+

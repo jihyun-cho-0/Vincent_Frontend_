@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="static/css/main.css">
+	<link rel="stylesheet" href="static/css/filterpage.css">
+	<title>Document</title>
+</head>
+
+<body>
+	<div class="overlay"></div>
+	<div class="modal">
+		<!-- img, next, right, close -->
+		<img src="" />
+		<button class="prev">
+			<< /button>
+				<button class="next">></button>
+				<button class="close">x</button>
+	</div>
+	<section>
+		<h3>what filter do you like</h3>
+		<nav>
+			<ul>
+				<li><a href="main.html" class="active">post</a></li>
+				<li style="padding-left: 25px;">filter</a></li>
+			</ul>
+		</nav>
+		<p class="desc">
+			hello. Welcome to the filter studio.<br /> Choose any filter you like. We will change your
+			picture. If you
+			don't see the filter you want, add a new one.</p>
+		<div class="filter-container">
+            
+
+
+
+
+
+
+            <!-- 스크롤 필터 -->
+            <div id="contenar">
+                <div id="cards">
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                </div>
+                <div id="slider">
+                    <input type="range" id="slid"
+                           min="0" max="50"
+                           value="0" oninput="slid()"/>
+                    <div id="cerlc"></div>
+                </div>
+            </div>
+			
+		</div>
+
+	</section>
+
+	<footer>
+		<span>Team LoL</span> / <span> <a href="https://github.com/Carrotww/Recommend_service" target="_blank">Github
+		</span>
+	</footer>
+
+
+</body>
+
+<script src="static/js/main.js"></script>
+<script src="static/js/filterpage.js"></script>
+
+
+
+</html>

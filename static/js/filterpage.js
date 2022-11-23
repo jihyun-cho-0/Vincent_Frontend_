@@ -2,7 +2,6 @@
 function $(el) {
     return  document.querySelector(el);
 }
-
 function slid() {
  // input value
  var sv=$("#slid").value;

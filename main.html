@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="static/css/main.css">
+	<title>Document</title>
+</head>
+
+<body>
+	<div class="overlay"></div>
+	<div class="modal">
+		<!-- img, next, right, close -->
+		<img src="" />
+		<button class="prev">
+			<< /button>
+				<button class="next">></button>
+				<button class="close">x</button>
+	</div>
+	<section>
+		<h3>what filter do you like</h3>
+		<nav>
+			<ul>
+				<li><a href="#" class="active">post</a></li>
+				<li style="padding-left: 25px;" ><a href="filterpage.html">filter</a></li>
+			</ul>
+		</nav>
+		<p class="desc">
+			hello. Welcome to the filter studio.<br /> Choose any filter you like. We will change your
+			picture. If you
+			don't see the filter you want, add a new one.</p>
+		<div class="gallery-container">
+			<!-- <div class="gallery-item"><img
+                    src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg"
+                    alt="blueberries or chihuahua" /></div>
+            <div class="gallery-item"><img
+                    src="https://velog.velcdn.com/images/taeeuno_o/post/fed5e6ff-cade-493c-a5f9-c479ebc6c917/image.jpg"
+                    alt="rice noodle eggroll" /></div>
+            <div class="gallery-item"><img
+                    src="https://velog.velcdn.com/images/taeeuno_o/post/bde79816-856b-4f39-9ad8-54b7d0d36c75/image.png"
+                    alt="popcorn animals" /></div> -->
+			<!-- <div class="gallery-item"><img
+                    src="https://velog.velcdn.com/images/taeeuno_o/post/5dd7d477-6a69-4d11-a0a4-c32ad1aa5c23/image.jpg"
+                    alt="cereal mascot redraw" /></div>
+            <div class="gallery-item"><img
+                    src="https://velog.velcdn.com/images/taeeuno_o/post/ff8fa868-e70a-44b5-bcdc-ba873bda47f5/image.jpg"
+                    alt="key lime pie" /></div>
+            <div class="gallery-item"><img
+                    src="https://velog.velcdn.com/images/taeeuno_o/post/15168e24-baa4-4e2a-bb82-20d80990d91e/image.jpg"
+                    alt="apple pie" /></div> -->
+			<!-- 슬라이드 -->
+			<div id="container">
+				<div class="slide_wrap">
+					<div class="slide_box">
+						<div class="slide_list clearfix">
+							<div class="slide_content slide01">
+								<p>
+								<div class="gallery-item"><img
+										src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg"
+										alt="blueberries or chihuahua" /></div>
+								</p>
+								<p>
+									<div class="gallery-item"><img
+										src="https://velog.velcdn.com/images/taeeuno_o/post/bde79816-856b-4f39-9ad8-54b7d0d36c75/image.png"
+										alt="popcorn animals" /></div>
+								</p>
+								<p>
+									<div class="gallery-item"><img
+										src="https://velog.velcdn.com/images/taeeuno_o/post/fed5e6ff-cade-493c-a5f9-c479ebc6c917/image.jpg"
+										alt="rice noodle eggroll" /></div>
+								</p>
+								
+								
+							</div>
+
+							<div class="slide_content slide02">
+								<p>
+									<div class="gallery-item"><img
+											src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg"
+											alt="blueberries or chihuahua" /></div>
+									</p>
+									<p>
+										<div class="gallery-item"><img
+											src="https://velog.velcdn.com/images/taeeuno_o/post/bde79816-856b-4f39-9ad8-54b7d0d36c75/image.png"
+											alt="popcorn animals" /></div>
+									</p>
+									<p>
+										<div class="gallery-item"><img
+											src="https://velog.velcdn.com/images/taeeuno_o/post/fed5e6ff-cade-493c-a5f9-c479ebc6c917/image.jpg"
+											alt="rice noodle eggroll" /></div>
+									</p>
+							</div>
+							<div class="slide_content slide03">
+								<p>
+									<div class="gallery-item"><img
+											src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg"
+											alt="blueberries or chihuahua" /></div>
+									</p>
+									<p>
+										<div class="gallery-item"><img
+											src="https://velog.velcdn.com/images/taeeuno_o/post/bde79816-856b-4f39-9ad8-54b7d0d36c75/image.png"
+											alt="popcorn animals" /></div>
+									</p>
+									<p>
+										<div class="gallery-item"><img
+											src="https://velog.velcdn.com/images/taeeuno_o/post/fed5e6ff-cade-493c-a5f9-c479ebc6c917/image.jpg"
+											alt="rice noodle eggroll" /></div>
+									</p>
+							</div>
+							<div class="slide_content slide04">
+								<p>
+									<div class="gallery-item"><img
+											src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg"
+											alt="blueberries or chihuahua" /></div>
+									</p>
+									<p>
+										<div class="gallery-item"><img
+											src="https://velog.velcdn.com/images/taeeuno_o/post/bde79816-856b-4f39-9ad8-54b7d0d36c75/image.png"
+											alt="popcorn animals" /></div>
+									</p>
+									<p>
+										<div class="gallery-item"><img
+											src="https://velog.velcdn.com/images/taeeuno_o/post/fed5e6ff-cade-493c-a5f9-c479ebc6c917/image.jpg"
+											alt="rice noodle eggroll" /></div>
+									</p>
+							</div>
+							<div class="slide_content slide05">
+								<p>
+									<div class="gallery-item"><img
+											src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg"
+											alt="blueberries or chihuahua" /></div>
+									</p>
+									<p>
+										<div class="gallery-item"><img
+											src="https://velog.velcdn.com/images/taeeuno_o/post/bde79816-856b-4f39-9ad8-54b7d0d36c75/image.png"
+											alt="popcorn animals" /></div>
+									</p>
+									<p>
+										<div class="gallery-item"><img
+											src="https://velog.velcdn.com/images/taeeuno_o/post/fed5e6ff-cade-493c-a5f9-c479ebc6c917/image.jpg"
+											alt="rice noodle eggroll" /></div>
+									</p>
+							</div>
+
+							<div class="slide_content slide06">
+								<p>
+									<div class="gallery-item"><img
+											src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg"
+											alt="blueberries or chihuahua" /></div>
+									</p>
+									<p>
+										<div class="gallery-item"><img
+											src="https://velog.velcdn.com/images/taeeuno_o/post/bde79816-856b-4f39-9ad8-54b7d0d36c75/image.png"
+											alt="popcorn animals" /></div>
+									</p>
+									<p>
+										<div class="gallery-item"><img
+											src="https://velog.velcdn.com/images/taeeuno_o/post/fed5e6ff-cade-493c-a5f9-c479ebc6c917/image.jpg"
+											alt="rice noodle eggroll" /></div>
+									</p>
+							</div>
+						</div>
+						<!-- // .slide_list -->
+					</div>
+					<!-- // .slide_box -->
+					<div class="slide_btn_box">
+						<button type="button" class="slide_btn_prev"><</button>
+						<button type="button" class="slide_btn_next">></button>
+					</div>
+					<!-- // .slide_btn_box -->
+					<ul class="slide_pagination"></ul>
+					<!-- // .slide_pagination -->
+				</div>
+				<!-- // .slide_wrap -->
+			</div>
+			<!-- // .container -->
+
+
+
+		</div>
+
+	</section>
+
+	<footer>
+		<span>Team LoL</span> / <span> <a href="https://github.com/Carrotww/Recommend_service" target="_blank">Github
+		</span>
+	</footer>
+
+
+</body>
+<script src="static/js/main4.js"></script>
+<script src="static/js/main_slide.js"></script>
+
+
+
+</html>

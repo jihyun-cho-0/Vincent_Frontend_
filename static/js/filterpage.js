@@ -20,19 +20,10 @@ function slid() {
 
 
 
-
-
-
-//////////////////////////////////////////적용 작업중//////////////////////////////////////////////////////////////////////
-
-
-
 var server = "http://127.0.0.1:8000"
 
 window.onload = ()=>{
-    console.log("게시글 생성 js 로딩완료");
-    filter_list()  
-    
+    filter_list()
 }
 
 
@@ -40,9 +31,6 @@ window.onload = ()=>{
 async function filter_list() {
     // 해당 url로 요청보내고 응답데이터 받기 : fetch
     const response = await fetch('http://127.0.0.1:8000/filter/?sort=modal', {
-        // headers:{
-        //     "Authorization":"Bearer "+localStorage.getItem("access")
-        // },
         method:'GET'
     })
     // Promise 안에 담긴 데이터 꺼내오기
@@ -51,8 +39,6 @@ async function filter_list() {
     }).then(data => {
         return data
     });
-
-    console.log("1sssssssssssssss1",response)
 
     var filters = document.getElementById("cards"); // 각각의 필터이름,이미지가 담긴 div를 추가할 부모 div
 
@@ -63,16 +49,20 @@ async function filter_list() {
         filter_info.className = "card"; // css class 지정
         filters.appendChild(filter_info);
 
+        var img_frame = document.createElement("div"); // 이미지 프레임 div 생성
+        img_frame.className = "card_img_frame"; // css class 지정
+
         var filter_image = document.createElement("img"); // img 테그 생성
         filter_image.className = "card_img"; // css class 지정
         filter_image.src = response['results'][i]['filter_image']; // img 테그 scr 경로 지정
         filter_image.alt = response['results'][i]['pk']; // img 테그 alt 경로 지정
         filter_image.id = response['results'][i]['pk']; // img 테그 id값 지정
         filter_image.setAttribute("onclick", "filter_pick("+filter_pk+")"); // 선택한 div 클릭 시 해당 함수 호출
-        filter_info.appendChild(filter_image);
+        
+        filter_info.appendChild(img_frame);
+        img_frame.appendChild(filter_image);
 
-
-        const filter_name = document.createElement("span"); // div 테그 생성
+        const filter_name = document.createElement("div"); // div 테그 생성
         filter_name.className = "card_title"; // css class 지정
         filter_name.innerText = response['results'][i]['filter_name']; // div 테그 안의 텍스트 지정
         filter_name.setAttribute("onclick", "filter_pick("+filter_pk+")"); // 선택한 div 클릭 시 해당 함수 호출
@@ -81,9 +71,21 @@ async function filter_list() {
 }
 
 
+// 사용자가 업로드한 이미지 or 머신러닝 결과 이미지 미리보기
+function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('preview').src = e.target.result;
+      };
+      reader.readAsDataURL(input.files[0]);
+    } else {
+      document.getElementById('preview').src = "";
+    }
+  }
 
 
-// 사용자가 필터 선텍 시 머신러닝 실행시키는 함수 + 머신러닝 실행 버튼 누르면 실행
+// (제공한 기존 필터이미지/필터이름 클릭 or 머신러닝 버튼 클릭 시)머신러닝 실행시키는 함수
 async function filter_pick(filter_pk) {
     const formData = new FormData();
     
@@ -117,7 +119,7 @@ async function filter_pick(filter_pk) {
             return data
         });
 
-        var post_image = document.getElementById("post_image"); // 머신러닝 결과 이미지가 담긴 img테그
+        var post_image = document.getElementById("preview"); // 머신러닝 결과 이미지가 담긴 img테그
         post_image.src = server+response; // img 테그 scr 경로 지정
         console.log(post_image.src)
 
@@ -158,7 +160,7 @@ async function post() {
     // test.then(data => formData.append("post_image", data))
 
 
-    url = document.getElementById("post_image").src
+    url = document.getElementById("preview").src
     const response = await fetch(url);
     const data = await response.blob();
     const ext = url.split(".").pop(); // url 구조에 맞게 수정할 것
@@ -182,7 +184,7 @@ async function post() {
 
     const response2 = await fetch('http://127.0.0.1:8000/post/', {
         headers:{
-            "Authorization":"Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY5MzI2NjgxLCJpYXQiOjE2NjkzMDg2ODEsImp0aSI6ImY0N2Q2NWZiYzYwOTRhYmM5MjM2ODUyOTE4ODJkZGJmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiJ9.8Aa-G3dcF2iZua5gF9GVsUlBE5kMPLeFlxtpkQvrY0Y"
+            "Authorization":"Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY5Mzk2ODYyLCJpYXQiOjE2NjkzNzg4NjIsImp0aSI6IjlhZDc4YjVjNTZiNzRjY2M4ZWRkYTQ3ZjA4YzdjYmI2IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiJ9.5-ZyPm3fKwYmm-8XoG3WTHLnfY-HytEZuy6qTW4xyik"
         },
         // headers:{
         //     "Authorization":"Bearer "+localStorage.getItem("access")

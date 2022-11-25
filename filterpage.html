@@ -32,18 +32,18 @@
 			picture. If you
 			don't see the filter you want, add a new one.</p>
 		<div class="filter-container">
-            
-
-
-
-
-
+			<input type="file" id="temp_image" name="temp_image" accept="image/png, image/jpeg" onchange="readURL(this);">
+			
+			<div id="preview_frame" class="preview_frame">
+				<img src="http://127.0.0.1:8000/media/filter/2222.jpg" id="preview" class="preview">
+			</div>
 
             <!-- 스크롤 필터 -->
             <div id="contenar">
                 <div id="cards">
                     <!-- <div class="card"></div>-->
                 </div>
+				<input type="file" id="user_filter" name="user_filter" accept="image/png, image/jpeg">
                 <div id="slider">
                     <input type="range" id="slid"
                            min="0" max="50"
@@ -51,22 +51,18 @@
                     <div id="cerlc"></div>
                 </div>
             </div>
-			
 		</div>
 
+		<input type="text" id="title" placeholder="title" style="display:none;">
+		<input type="text" id="content" placeholder="content" style="display:none;">
+		<button type="button" onclick="submit()">게시글 작성하기</button>
+		<button type="button" onclick="post()">게시글 생성하기</button>
+		
 	</section>
-
-	<footer>
-		<span>Team LoL</span> / <span> <a href="https://github.com/Carrotww/Recommend_service" target="_blank">Github
-		</span>
-	</footer>
-
-
+	<button type="button" onclick="filter_pick()" class="ml_start">필터 적용하기</button>
 </body>
 
 <script src="static/js/main.js"></script>
 <script src="static/js/filterpage.js"></script>
-
-
 
 </html>

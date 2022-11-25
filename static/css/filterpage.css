@@ -42,8 +42,6 @@
 .card{
     width: 200px;
     height: 165px;
-    border-radius: 5px;
-    background: #00adb5;
     float: left;
     margin-left:5px ;
     overflow: hidden;
@@ -51,22 +49,48 @@
 
 .card_img_frame{
     width: 100%;
-    height: ;
-
+    height: 140px;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .card_img{
     width: 100%;
+    height: 100%;
 }
 
 .card_title{
     font-size: 20px;
+    cursor: pointer;
 }
 
 .card:first-of-type{
     margin-left: 0px;
 }
 
+/* 머신러닝 결과 */
+.preview_frame{
+    width: 330px;
+    height: 330px;
+    background-color: #ebebeb;
+    overflow: hidden;
+}
+
+.preview{
+    max-width: auto;
+    height: 100%;
+}
+
+.ml_start{
+    padding: 4px 13px;
+    background-color: #e74b24;
+    margin-top: 50px;
+    border-radius: 7px;
+    font-size: 20px;
+    border: 3px solid #e74b24;
+    color: rgb(255, 255, 255);
+}
 
 /* 필터카드 목록 하단 슬라이더 */
 #slider{

@@ -1,3 +1,32 @@
+// 필터 스크롤
+function $(el) {
+    return  document.querySelector(el);
+}
+function slid() {
+ // input value
+ var sv=$("#slid").value;
+ // cards contenar width minus perent width divide input max range value multi input value
+ var pw=(($("#cards").clientWidth-$("#contenar").clientWidth)/50)*sv;
+ $("#cards").style="right:"+pw+"px";
+ 
+ // the width of the cerlc
+ var cer=$("#cerlc").offsetWidth;
+ // cerlc perent width minus the cerlc width divide input max range multi input value
+ var iw=(($("#slid").clientWidth-cer)/50)*sv;
+ $("#cerlc").style="left:"+iw+"px";
+}
+
+
+
+
+
+
+
+
+//////////////////////////////////////////적용 작업중//////////////////////////////////////////////////////////////////////
+
+
+
 var server = "http://127.0.0.1:8000"
 
 window.onload = ()=>{
@@ -25,7 +54,7 @@ async function filter_list() {
 
     console.log("1sssssssssssssss1",response)
 
-    var filters = document.getElementById("filters"); // 각각의 필터이름,이미지가 담긴 div를 추가할 부모 div
+    var filters = document.getElementById("cards"); // 각각의 필터이름,이미지가 담긴 div를 추가할 부모 div
 
     for (i = 0; i < response['results'].length; i++) {
         const filter_pk = response['results'][i]['pk'];

@@ -1,86 +1,86 @@
 
 
 // // 슬라이드 내 이미지 관련=======================================================
-// const galleryItem = document.querySelectorAll(".gallery-item");
-// const overlay = document.querySelector(".overlay");
-// const modal = document.querySelector(".modal");
-// const close = document.querySelector(".close");
-// const next = document.querySelector(".next");
-// const prev = document.querySelector(".prev");
+const galleryItem = document.querySelectorAll(".gallery-item");
+const overlay = document.querySelector(".overlay");
+const modal = document.querySelector(".modal");
+const close = document.querySelector(".close");
+const next = document.querySelector(".next");
+const prev = document.querySelector(".prev");
 
-// var idx_src_arr = {};
-// var current_idx = 0;
-
-
-// //clicking on image item
-// galleryItem.forEach((item, i) => {
-//   idx_src_arr[i] = item.children[0].src;
-//   item.addEventListener("click", function(){
-//     current_idx = i;
-//     // console.log(item.children[0].src);
-//     overlay.classList.add("show");
-//     modal.classList.add("show");
-//     modal.children[0].src=item.children[0].src;
-//   });
-// })
-
-// //close button
-// close.addEventListener("click", function(){
-//     overlay.classList.remove("show");
-//     modal.classList.remove("show");
-// })
-
-// let show_modal = (src_str) => {
-//   modal.children[0].src = src_str;
-// }
-
-// //next
-// next.addEventListener('click', function(){
-//   // console.log("next");
-//   //showSlide(slideIdx++);
-//   if(current_idx == galleryItem.length - 1){
-//     current_idx = 0;
-//   }
-//   else{
-//     current_idx = current_idx + 1;
-//   }
-//   show_modal(idx_src_arr[current_idx]);
-// })
-// //back
-// prev.addEventListener('click', function(){
-//   if(current_idx == 0){
-//     current_idx = galleryItem.length - 1;
-//   }
-//   else{
-//     current_idx = current_idx - 1;
-//   }
-//   show_modal(idx_src_arr[current_idx]);
-// })
+var idx_src_arr = {};
+var current_idx = 0;
 
 
-// let slideIdx = 0;
-// let showSlide = (idx) => {
-//   console.log(idx)
-  
-//   if (idx >= galleryItem.length){
-//     slideIdx = 0;
-//   }
-//   if(idx < 0){
-//     slideIdx = galleryItem.length-1;}
-  
-//   // console.log(galleryItem[slideIdx].children[0].src);
-//   modal.children[0].src=galleryItem[slideIdx].children[0].src;
-// }
+//clicking on image item
+galleryItem.forEach((item, i) => {
+  idx_src_arr[i] = item.children[0].src;
+  item.addEventListener("click", function(){
+    current_idx = i;
+    // console.log(item.children[0].src);
+    overlay.classList.add("show");
+    modal.classList.add("show");
+    modal.children[0].src=item.children[0].src;
+  });
+})
+
+//close button
+close.addEventListener("click", function(){
+    overlay.classList.remove("show");
+    modal.classList.remove("show");
+})
+
+let show_modal = (src_str) => {
+  modal.children[0].src = src_str;
+}
+
 //next
-// next.addEventListener('click', function(){
-//   // console.log("next");
-//   showSlide(slideIdx++);
-// })
-// //back
-// prev.addEventListener('click', function(){
-//   // console.log("prev");
-//   showSlide(slideIdx--);
-// })
+next.addEventListener('click', function(){
+  // console.log("next");
+  //showSlide(slideIdx++);
+  if(current_idx == galleryItem.length - 1){
+    current_idx = 0;
+  }
+  else{
+    current_idx = current_idx + 1;
+  }
+  show_modal(idx_src_arr[current_idx]);
+})
+//back
+prev.addEventListener('click', function(){
+  if(current_idx == 0){
+    current_idx = galleryItem.length - 1;
+  }
+  else{
+    current_idx = current_idx - 1;
+  }
+  show_modal(idx_src_arr[current_idx]);
+})
+
+
+let slideIdx = 0;
+let showSlide = (idx) => {
+  console.log(idx)
+  
+  if (idx >= galleryItem.length){
+    slideIdx = 0;
+  }
+  if(idx < 0){
+    slideIdx = galleryItem.length-1;}
+  
+  // console.log(galleryItem[slideIdx].children[0].src);
+  modal.children[0].src=galleryItem[slideIdx].children[0].src;
+}
+next
+next.addEventListener('click', function(){
+  // console.log("next");
+  showSlide(slideIdx++);
+})
+//back
+prev.addEventListener('click', function(){
+  // console.log("prev");
+  showSlide(slideIdx--);
+})
 
 
 // 모달창====================================
@@ -91,74 +91,78 @@
 // 이미지 업로드 모달
 
 // 모달창====================================
-const imgloremIpsum = document.getElementById("lorem-ipsum")
-fetch("https://baconipsum.com/api/?type=all-meat&paras=200&format=html")
-    .then(response => response.text())
-    .then(result => loremIpsum.innerHTML = result)
-const imgmodal = document.getElementById("img-modal")
-function modalOn() {
-   imgmodal.style.display = "flex"
+// Modal을 가져옵니다.
+var modals = document.getElementsByClassName("btn-modal");
+// Modal을 띄우는 클래스 이름을 가져옵니다.
+var btns = document.getElementsByClassName("modal-btn");
+// Modal을 닫는 close 클래스를 가져옵니다.
+var spanes = document.getElementsByClassName("modal-close");
+var funcs = [];
+
+// Modal을 띄우고 닫는 클릭 이벤트를 정의한 함수
+function Modal(num) {
+    return function () {
+        // 해당 클래스의 내용을 클릭하면 Modal을 띄웁니다.
+        btns[num].onclick = function () {
+            modals[num].style.display = "block";
+            console.log(num);
+        };
+
+        // <span> 태그(X 버튼)를 클릭하면 Modal이 닫습니다.
+        spanes[num].onclick = function () {
+            modals[num].style.display = "none";
+        };
+    };
 }
-function isModalOn() {
-    return imgmodal.style.display === "flex"
+
+// 원하는 Modal 수만큼 Modal 함수를 호출해서 funcs 함수에 정의합니다.
+for (var i = 0; i < btns.length; i++) {
+    funcs[i] = Modal(i);
 }
-function modalOff() {
-    imgmodal.style.display = "none"
+
+// 원하는 Modal 수만큼 funcs 함수를 호출합니다.
+for (var j = 0; j < btns.length; j++) {
+    funcs[j]();
 }
-const imgbtnModal = document.getElementById("img-btn-modal")
-imgbtnModal.addEventListener("click", e => {
-    modalOn()
-})
-const imgcloseBtn = imgmodal.querySelector(".close-area")
-imgcloseBtn.addEventListener("click", e => {
-    modalOff()
-})
-imgmodal.addEventListener("click", e => {
-    const evTarget = e.target
-    if(evTarget.classList.contains("img-modal-overlay")) {
-        modalOff()
+
+// Modal 영역 밖을 클릭하면 Modal을 닫습니다.
+window.onclick = function (event) {
+    if (event.target.className == "btn-modal") {
+        event.target.style.display = "none";
     }
-})
-window.addEventListener("keyup", e => {
-    if(isModalOn() && e.key === "Escape") {
-        modalOff()
-    }
-})
- 
+};
 
 
-// 필터 업로드 모달창
-const loremIpsum = document.getElementById("lorem-ipsum")
-fetch("https://baconipsum.com/api/?type=all-meat&paras=200&format=html")
-    .then(response => response.text())
-    .then(result => loremIpsum.innerHTML = result)
-const modal = document.getElementById("modal")
-function modalOn() {
-    modal.style.display = "flex"
+
+/* 이미지 업로드 모달창에 이미지 미리보기 */
+// function setThumbnail(event) {
+//   var reader = new FileReader();
+
+//   reader.onload = function(event) {
+//     var img = document.createElement("img");
+//     img.setAttribute("src", event.target.result);
+//     document.querySelector("div#image_container").appendChild(img);
+//   };
+
+//   reader.readAsDataURL(event.target.files[0]);
+// }
+
+
+
+
+
+
+
+
+// 필터
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('preview').src = e.target.result;
+    };
+    reader.readAsDataURL(input.files[0]);
+  } else {
+    document.getElementById('preview').src = "";
+  }
 }
-function isModalOn() {
-    return modal.style.display === "flex"
-}
-function modalOff() {
-    modal.style.display = "none"
-}
-const btnModal = document.getElementById("btn-modal")
-btnModal.addEventListener("click", e => {
-    modalOn()
-})
-const closeBtn = modal.querySelector(".close-area")
-closeBtn.addEventListener("click", e => {
-    modalOff()
-})
-modal.addEventListener("click", e => {
-    const evTarget = e.target
-    if(evTarget.classList.contains("modal-overlay")) {
-        modalOff()
-    }
-})
-window.addEventListener("keyup", e => {
-    if(isModalOn() && e.key === "Escape") {
-        modalOff()
-    }
-})
- 

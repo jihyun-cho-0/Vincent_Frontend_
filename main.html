@@ -32,24 +32,7 @@
 			picture. If you
 			don't see the filter you want, add a new one.</p>
 		<div class="gallery-container">
-			<!-- <div class="gallery-item"><img
-                    src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg"
-                    alt="blueberries or chihuahua" /></div>
-            <div class="gallery-item"><img
-                    src="https://velog.velcdn.com/images/taeeuno_o/post/fed5e6ff-cade-493c-a5f9-c479ebc6c917/image.jpg"
-                    alt="rice noodle eggroll" /></div>
-            <div class="gallery-item"><img
-                    src="https://velog.velcdn.com/images/taeeuno_o/post/bde79816-856b-4f39-9ad8-54b7d0d36c75/image.png"
-                    alt="popcorn animals" /></div> -->
-			<!-- <div class="gallery-item"><img
-                    src="https://velog.velcdn.com/images/taeeuno_o/post/5dd7d477-6a69-4d11-a0a4-c32ad1aa5c23/image.jpg"
-                    alt="cereal mascot redraw" /></div>
-            <div class="gallery-item"><img
-                    src="https://velog.velcdn.com/images/taeeuno_o/post/ff8fa868-e70a-44b5-bcdc-ba873bda47f5/image.jpg"
-                    alt="key lime pie" /></div>
-            <div class="gallery-item"><img
-                    src="https://velog.velcdn.com/images/taeeuno_o/post/15168e24-baa4-4e2a-bb82-20d80990d91e/image.jpg"
-                    alt="apple pie" /></div> -->
+
 			<!-- 슬라이드 -->
 			<div id="container">
 				<div class="slide_wrap">
@@ -168,9 +151,8 @@
 
 					<!-- // 슬라이드 버튼 시작-->
 					<div class="slide_btn_box">
-						<button type="button" class="slide_btn_prev">
-							<< /button>
-								<button type="button" class="slide_btn_next">></button>
+						<button type="button" class="slide_btn_prev"><</button>
+						<button type="button" class="slide_btn_next">></button>
 					</div>
 					<!-- //슬라이드 버튼 박스 -->
 					<ul class="slide_pagination"></ul>
@@ -178,66 +160,57 @@
 
 
 				</div>
-				<div id="modal-button-container">
-					<ul>
-						<li>
-							<div id="container">
-								<button id="img-btn-modal"> 이미지 업로드 </button>
-							</div>
-						</li>
-						<li>
-							<div id="container">
-								<button id="btn-modal"> 필터 업로드 </button>
-							</div>
-						</li>
-					</ul>
+
+				<!-- 슬라이드 컨테이너 끝 -->
+
+
+				<!-- 모달창 만들기 -->
+				<div class="upload-btn-container">
+					<!-- 이미지 업로드  Modal을 여는 클래스 -->
+					<button class="modal-btn">이미지업로드</button>
+
+					<!-- 파일 업로드  Modal을 여는 클래스 -->
+					<button class="modal-btn">필터 업로드</button>
 
 				</div>
 			</div>
-			<!-- 슬라이드 컨테이너 끝 -->
-
-			<!-- 이미지 업로드 모달 -->
-
-			<div id="img-modal" class="img-modal-overlay">
-				<div class="modal-window">
-					<div class="title">
-						<h2>모달</h2>
-					</div>
-					<div class="close-area">X</div>
-					<div class="content">
-						<p>이미지 업로드</p>
-
-					</div>
-				</div>
-			</div>
-			<!-- 필터 업로드 모달 -->
-			<div id="container">
-				<button id="btn-modal">필터 업로드</button>
-			</div>
-			<div id="modal" class="modal-overlay">
-				<div class="modal-window">
-					<div class="title">
-						<h2>모달</h2>
-					</div>
-					<div class="close-area">X</div>
-					<div class="content">
-						<p>필터 업로드</p>
-						
-						
-					</div>
-				</div>
-			</div>
-
-
-
-		</div>
-
 	</section>
 
-	<!-- <footer>
-		<span>Team LoL</span> / <span> <a href="https://github.com/Carrotww/Recommend_service" target="_blank">Github
-		</span>
-	</footer> -->
+
+
+
+
+	<!-- 첫 번째 Modal -->
+	<div class="btn-modal">
+		<!-- 첫 번째 Modal의 내용 -->
+		<div class="modal-content">
+			<div style="border:red 3px solid">
+				<a>이미지 업로드</a>
+				<a class="modal-close">x</a>
+			
+			</div>
+
+			<div class="upload-btn-img-box">
+				<input type="file" id="image" accept="image/*" onchange="setThumbnail(event);" />
+			<div id="image_container"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 두 번째 Modal -->
+	<div class="btn-modal">
+		<!-- 두 번째 Modal의 내용 -->
+		<div class="modal-content">
+			<a>이미지 업로드</a>
+				<a class="modal-close">x</a>
+				
+			<div class="upload-btn-filter-box">
+			<input type="file" id="filter" accept="filter/*" onchange="setThumbnail(event2);" />
+			<div id="filter_container" ></div>
+		</div>
+		</div>
+	</div>
+
 
 
 </body>

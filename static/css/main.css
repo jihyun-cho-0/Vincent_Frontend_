@@ -68,7 +68,7 @@ nav ul li {
 }
 
 nav ul li a {
-  border : 1px solid blue;
+  border: 1px solid blue;
   text-decoration: none;
   color: #999;
   transition: 150ms ease-in-out;
@@ -76,7 +76,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  border : 1px solid green;
+  border: 1px solid green;
   font-weight: 500;
   letter-spacing: 3px;
   color: #e74b24;
@@ -288,7 +288,7 @@ footer a {
 
 .slide_content.slide01 {
   background: #ddbdff;
-  
+
 }
 
 .slide_content.slide02 {
@@ -365,7 +365,7 @@ footer a {
 
 
 
-.upload-btn-container{
+.upload-btn-container {
   margin: 30px 0px;
   border: 3px red solid;
 }
@@ -374,9 +374,10 @@ footer a {
 /* 모달창 */
 
 /* 모달창 버튼 */
-.modal-btn{
+.modal-btn {
   margin: 0px 40px;
 }
+
 /* 배경 */
 .btn-modal {
   display: none;
@@ -395,14 +396,17 @@ footer a {
 
 
 /* 모달창 */
+
 .modal-content {
+  border: 4px solid blue;
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 40px auto;
   /* 15% from the top and centered */
-  padding: 20px;
+  padding: 20px 10px;
   border: 1px solid #888;
   width: 600px;
-  height: 400px;
+  height: 600px;
+  top:10px;
   /* Could be more or less, depending on screen size */
 }
 
@@ -424,23 +428,150 @@ footer a {
   cursor: pointer;
 }
 
-.modal-content .image_container{
+.modal-content .image_container {
   border: solid red 3px;
   width: 80%;
   height: 80%;
 }
 
 
-.upload-btn-img-box{
-  border: 3px solid red;
+.upload-box {
+  /* border: 3px solid red; */
   height: 80%
 }
 
-.upload-btn-filter-box{
-  border: 3px solid red;
-  height: 80%
-
+.preview {
+  max-width: auto;
+  height: 100%;
 }
+
+.preview-container {
+  width: 200px;
+  height: 200px;
+}
+
+
+
+
+/* 이쁜 이미지 업로드 모달창 ============*/
+
+.img-upload {
+  /* margin: 20px 20px; */
+  border: 1px solid rgb(199, 25, 25);
+  width: 100%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding:  10px 10px; */
+}
+
+.img-form-input {
+  border: 3px solid blue;
+
+  width: 250px;
+  padding: 10px;
+  background: #fff;
+  border: 2px dashed #555;
+  margin: 20px;
+}
+
+.img-form-input input {
+  
+  display: none;
+}
+
+.img-form-input label {
+  display: block;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: #333;
+  color: #fff;
+  font-size: 15px;
+  font-family: "Open Sans", sans-serif;
+  text-transform: Uppercase;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.img-form-input img {
+  width: 100%;
+  display: none;
+  margin-top: 10px;
+}
+
+
+.buttons-box{
+  border: 1px solid red;
+  margin: 70px 50px;
+  height: 80%;
+  width: 45%;
+}
+
+
+
+.buttons-box {
+  margin: 20px auto;
+  border: 1px solid rgb(199, 25, 25);
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding:  10px 10px; */
+}
+
+
+/* 이쁜 필터 업로드 모달창 */
+.filter-upload {
+  border: 4px solid rgb(105, 30, 30);
+  width: 40%;
+
+  height: 90%;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.filter-form-input {
+  border: 3px solid orchid;
+  width: 250px;
+  padding: 20px;
+  background: #fff;
+  border: 2px dashed #555;
+}
+
+.filter-form-input input {
+  display: none;
+}
+
+.filter-form-input label {
+  display: block;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: #333;
+  color: #fff;
+  font-size: 15px;
+  font-family: "Open Sans", sans-serif;
+  text-transform: Uppercase;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.filter-form-input img {
+  width: 100%;
+  display: none;
+  margin-top: 10px;
+}
+
+
+
 
 
 

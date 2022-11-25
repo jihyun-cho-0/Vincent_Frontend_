@@ -83,24 +83,18 @@ prev.addEventListener('click', function(){
 })
 
 
-// 모달창====================================
+//  업로드 영역 모달창 시작====================================
 
 
+var modals = document.getElementsByClassName("btn-modal");// 모달창 띄우는 자바스크립트 시작
+ 
+var btns = document.getElementsByClassName("modal-btn"); // Modal을 띄우는 클래스 이름을 가져옵니다.
 
-
-// 이미지 업로드 모달
-
-// 모달창====================================
-// Modal을 가져옵니다.
-var modals = document.getElementsByClassName("btn-modal");
-// Modal을 띄우는 클래스 이름을 가져옵니다.
-var btns = document.getElementsByClassName("modal-btn");
-// Modal을 닫는 close 클래스를 가져옵니다.
-var spanes = document.getElementsByClassName("modal-close");
+var spanes = document.getElementsByClassName("modal-close");  // Modal을 닫는 close 클래스를 가져옵니다.
 var funcs = [];
 
-// Modal을 띄우고 닫는 클릭 이벤트를 정의한 함수
-function Modal(num) {
+
+function Modal(num) {  // Modal을 띄우고 닫는 클릭 이벤트를 정의한 함수
     return function () {
         // 해당 클래스의 내용을 클릭하면 Modal을 띄웁니다.
         btns[num].onclick = function () {
@@ -148,21 +142,40 @@ window.onclick = function (event) {
 // }
 
 
-
-
-
-
-
-
-// 필터
-function readURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      document.getElementById('preview').src = e.target.result;
-    };
-    reader.readAsDataURL(input.files[0]);
-  } else {
-    document.getElementById('preview').src = "";
+// 이쁜 이미지 업로드창
+function showPreviewImg(event) {
+  if (event.target.files.length > 0) {
+      var src = URL.createObjectURL(event.target.files[0]);
+      var preview = document.getElementById("file-ip-1-preview");
+      preview.src = src;
+      preview.style.display = "block";
   }
 }
+
+
+
+function showPreviewFilter(event) {
+
+  if (event.target.files.length > 0) {
+      var src = URL.createObjectURL(event.target.files[0]);
+      var preview = document.getElementById("file-ip-2-preview");
+      preview.src = src;
+      preview.style.display = "block";
+  }
+}
+
+
+
+
+/* 필터 업로드 모달창에 이미지 미리보기 */
+// function readURL(input) {
+//   if (input.files && input.files[0]) {
+//     var reader = new FileReader();
+//     reader.onload = function(e) {
+//       document.getElementById('preview').src = e.target.result;
+//     };
+//     reader.readAsDataURL(input.files[0]);
+//   } else {
+//     document.getElementById('preview').src = "";
+//   }
+// }

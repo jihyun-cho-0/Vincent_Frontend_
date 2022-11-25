@@ -147,7 +147,7 @@ async function post() {
 
     const response2 = await fetch('http://127.0.0.1:8000/post/', {
         headers:{
-            "Authorization":"Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY5MzI2NjgxLCJpYXQiOjE2NjkzMDg2ODEsImp0aSI6ImY0N2Q2NWZiYzYwOTRhYmM5MjM2ODUyOTE4ODJkZGJmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiJ9.8Aa-G3dcF2iZua5gF9GVsUlBE5kMPLeFlxtpkQvrY0Y"
+            "Authorization":"Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY5Mzc4MzE2LCJpYXQiOjE2NjkzNjAzMTYsImp0aSI6ImI5Y2NkMzgwMzQxMTRmZjBhN2UwZmI2YTZjYzAyYjY1IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiJ9.R2gPUK9J2bQZiTkEDWaOmuc42IkSU5EmX-w9d96YAvc"
         },
         // headers:{
         //     "Authorization":"Bearer "+localStorage.getItem("access")

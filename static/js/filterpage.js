@@ -59,18 +59,24 @@ async function filter_list() {
     for (i = 0; i < response['results'].length; i++) {
         const filter_pk = response['results'][i]['pk'];
 
-        const filter_name = document.createElement("div"); // div 테그 생성
-        filter_name.className = "filter"; // css class 지정
-        filter_name.innerText = response['results'][i]['filter_name']; // div 테그 안의 텍스트 지정
-        filter_name.setAttribute("onclick", "filter_pick("+filter_pk+")"); // 선택한 div 클릭 시 해당 함수 호출
-        filters.appendChild(filter_name);
+        var filter_info = document.createElement("div"); // 이미지와 이름을 묶어주는 컨테이너 div 생성
+        filter_info.className = "card"; // css class 지정
+        filters.appendChild(filter_info);
 
         var filter_image = document.createElement("img"); // img 테그 생성
+        filter_image.className = "card_img"; // css class 지정
         filter_image.src = response['results'][i]['filter_image']; // img 테그 scr 경로 지정
         filter_image.alt = response['results'][i]['pk']; // img 테그 alt 경로 지정
         filter_image.id = response['results'][i]['pk']; // img 테그 id값 지정
         filter_image.setAttribute("onclick", "filter_pick("+filter_pk+")"); // 선택한 div 클릭 시 해당 함수 호출
-        filters.appendChild(filter_image);
+        filter_info.appendChild(filter_image);
+
+
+        const filter_name = document.createElement("span"); // div 테그 생성
+        filter_name.className = "card_title"; // css class 지정
+        filter_name.innerText = response['results'][i]['filter_name']; // div 테그 안의 텍스트 지정
+        filter_name.setAttribute("onclick", "filter_pick("+filter_pk+")"); // 선택한 div 클릭 시 해당 함수 호출
+        filter_info.appendChild(filter_name);
         }
 }
 

@@ -697,7 +697,8 @@ border-radius: 10px;
   width: 50%;
   height: 100%;
   background-color: rgb(201, 185, 162);
-  
+  border-top-right-radius: 10px;
+
 
 }
 
@@ -720,15 +721,24 @@ border-radius: 10px;
 }
 
 
-
-.user-box{
+/* 상세페이지 제목 박스 */
+.detail-title-box{
   border:solid 1px red;
   margin: 20px 10px;
 }
+/* 상세페이지 내용 박스 */
 
-.comment-box{
+.detail-content-box{
   border:solid 1px red;
-height: 60%;
+height:35%;
+  margin: 20px 10px;
+
+}
+/* 상세페이지 댓글 박스 */
+
+.detail-comment-box{
+  border:solid 1px red;
+height: 15%;
   margin: 20px 10px;
 
 }

@@ -2,13 +2,15 @@
 function $(el) {
     return  document.querySelector(el);
 }
+
+
 function slid() {
  // input value
  var sv=$("#slid").value;
  // cards contenar width minus perent width divide input max range value multi input value
  var pw=(($("#cards").clientWidth-$("#contenar").clientWidth)/50)*sv;
  $("#cards").style="right:"+pw+"px";
- 
+
  // the width of the cerlc
  var cer=$("#cerlc").offsetWidth;
  // cerlc perent width minus the cerlc width divide input max range multi input value
@@ -26,6 +28,10 @@ window.onload = ()=>{
     filter_list()
 }
 
+// 원하는 페이지로 이동하는 함수
+function move_page(page) {
+    window.location.href = page
+}
 
 // 모든 필터 목록 출력
 async function filter_list() {
@@ -67,7 +73,30 @@ async function filter_list() {
         filter_name.innerText = response['results'][i]['filter_name']; // div 테그 안의 텍스트 지정
         filter_name.setAttribute("onclick", "filter_pick("+filter_pk+")"); // 선택한 div 클릭 시 해당 함수 호출
         filter_info.appendChild(filter_name);
-        }
+    }
+    
+    // 새로운 필터 추가 버튼 생성
+    var add_filter_label = document.createElement("label");
+    add_filter_label.htmlFor = "user_filter";
+    filters.appendChild(add_filter_label);
+
+    var add_filter_div = document.createElement("div");
+    add_filter_div.className = "add_filter";
+    add_filter_label.appendChild(add_filter_div)
+
+    var add_filter_div_text = document.createElement("div");
+    add_filter_div_text.className = "add_filter_text";
+    add_filter_div_text.innerText = "커스텀필터 사용";
+    add_filter_div.appendChild(add_filter_div_text)
+   
+    var add_filter_input = document.createElement("input");
+    add_filter_input.id = "user_filter";
+    add_filter_input.name = "user_filter";
+    add_filter_input.type = "file";
+    add_filter_input.accept = "image/png, image/jpeg";
+    add_filter_input.style.display = 'none'; 
+    filters.appendChild(add_filter_input);
+    
 }
 
 
@@ -92,18 +121,15 @@ async function filter_pick(filter_pk) {
     if (filter_pk) { // 기존 필터 선택 시 -> 필터 pk값 저장
         const filter = filter_pk 
         formData.append("filter", filter)
-        console.log("filter는",filter)
     } else { // 사용자가 직적 필터 추가 시 -> 사용자가 추가한 필터 이미지파일 저장
         const user_filter = document.getElementById("user_filter").files[0] 
         formData.append("user_filter", user_filter)
-        console.log("user_filter는",user_filter)
     };
 
     // 사용자가 바꾸고자하는 원본 이미지 저장
-    const temp_image = document.getElementById("temp_image").files[0]
+    const temp_image = document.getElementById("file-ip-1").files[0]
     formData.append("temp_image", temp_image)
-    console.log("temp_image는",temp_image)
-    
+
 
     const response = await fetch('http://127.0.0.1:8000/main/image/', {
         // headers:{
@@ -119,9 +145,8 @@ async function filter_pick(filter_pk) {
             return data
         });
 
-        var post_image = document.getElementById("preview"); // 머신러닝 결과 이미지가 담긴 img테그
+        var post_image = document.getElementById("file-ip-1-preview"); // 머신러닝 결과 이미지가 담긴 img테그
         post_image.src = server+response; // img 테그 scr 경로 지정
-        console.log(post_image.src)
 
 }
 
@@ -133,7 +158,7 @@ async function submit() {
     content.style.display = 'block';
 }
 
-
+// src 값을 이미지 파일로 변환하기
 async function convertURLtoFile(url) {
     const response = await fetch(url);
     const data = await response.blob();
@@ -154,28 +179,14 @@ async function post() {
     const formData = new FormData();
     const title = document.getElementById("title").value
     const content = document.getElementById("content").value 
-    // const post_image = convertURLtoFile(document.getElementById("post_image").src) // 기존 작성내용
-    
-    // test = convertURLtoFile(document.getElementById("post_image").src)
-    // test.then(data => formData.append("post_image", data))
 
-
-    url = document.getElementById("preview").src
+    url = document.getElementById("file-ip-1-preview").src
     const response = await fetch(url);
     const data = await response.blob();
     const ext = url.split(".").pop(); // url 구조에 맞게 수정할 것
     const filename = url.split("/").pop(); // url 구조에 맞게 수정할 것
     const metadata = { type: `image/${ext}` };
-    const result = new File([data], filename, metadata);
-
-    
-
-    console.log(result)
-    console.log(title)
-    console.log(content)
-    // console.log(post_image)
-
-    
+    const result = new File([data], filename, metadata);   
 
     formData.append("title", title)
     formData.append("content", content)
@@ -184,14 +195,16 @@ async function post() {
 
     const response2 = await fetch('http://127.0.0.1:8000/post/', {
         headers:{
-            "Authorization":"Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY5Mzk2ODYyLCJpYXQiOjE2NjkzNzg4NjIsImp0aSI6IjlhZDc4YjVjNTZiNzRjY2M4ZWRkYTQ3ZjA4YzdjYmI2IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiJ9.5-ZyPm3fKwYmm-8XoG3WTHLnfY-HytEZuy6qTW4xyik"
+            "Authorization":"Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY5NDg0MDcwLCJpYXQiOjE2Njk0NjYwNzAsImp0aSI6Ijc4YzFjMDllMDkwMjQ2YTM4Njk2OWUwY2QzOGQ0YjdlIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiJ9.pqD0Z32W-KZhM1N2uQ94kL0TefDLmhF7EHTUzVvlSzk"
         },
         // headers:{
         //     "Authorization":"Bearer "+localStorage.getItem("access")
         // },
         method:'POST',
         body: formData
-        });
+    });
+
+    move_page('main.html')
     
 };
 

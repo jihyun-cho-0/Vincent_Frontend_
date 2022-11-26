@@ -1,12 +1,13 @@
 /* 필터 슬라이드의 전체 컨테이너 */
 .filter-container {
     border: 1px solid orange;
-    /* padding-top: 25px; */
+    padding-top: 25px;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     width: 100%;
     position: relative;
-    height: 400px;
+    height: auto;
   }
 
 
@@ -88,8 +89,26 @@
     margin-top: 50px;
     border-radius: 7px;
     font-size: 20px;
-    border: 3px solid #e74b24;
+    border: 0px solid #e74b24;
     color: rgb(255, 255, 255);
+}
+
+.btn-upload {
+    width: 140px;
+    height: 35px;
+    background: #919191;
+    border: 0px solid #e74b24;
+    color: rgb(255, 255, 255);
+    border-radius: 7px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    &:hover {
+      background: rgb(77,77,77);
+      color: #fff;
+    }
 }
 
 /* 필터카드 목록 하단 슬라이더 */

@@ -32,12 +32,15 @@
 			picture. If you
 			don't see the filter you want, add a new one.</p>
 		<div class="filter-container">
-			<input type="file" id="temp_image" name="temp_image" accept="image/png, image/jpeg" onchange="readURL(this);">
-			
 			<div id="preview_frame" class="preview_frame">
 				<img src="http://127.0.0.1:8000/media/filter/2222.jpg" id="preview" class="preview">
 			</div>
 
+			<label for="temp_image">
+				<div class="btn-upload">파일 업로드</div>
+			</label>
+			<input type="file" id="temp_image" name="temp_image" accept="image/png, image/jpeg" onchange="readURL(this);" style="display:none;">
+		
             <!-- 스크롤 필터 -->
             <div id="contenar">
                 <div id="cards">

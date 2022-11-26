@@ -24,10 +24,3 @@ function slid() {
 
 
 
-
-/* 버튼 누르면 필터 박스 추가 */
-$(function() {
-    $("button").on("click", function() {
-        $("#filters").append("<div class='filter'></div>");
-    });
-});

@@ -174,7 +174,7 @@
 
 					<!-- 파일 업로드  Modal을 여는 클래스 -->
 					<button class="modal-btn">필터 업로드</button>
-
+					<button class="modal-btn">게시물 상세보기</button>
 				</div>
 			</div>
 	</section>
@@ -188,98 +188,120 @@
 		<!-- 첫 번째 Modal의 내용 -->
 		<div class="modal-content">
 			<div style="border:rgb(245, 106, 106) 3px solid">
-				<a>이미지 업로드</a>
+				<a class="upload-text">Image Upload</a>
 				<a class="modal-close">x</a>
 			</div>
-			<!-- 원래 쓰던 버튼
-				<div class="upload-box">
-				<input type="file" id="image" accept="image/*" onchange="setThumbnail(event);" />
-				<div id="image_container"></div>
-			</div> -->
-	
 			<!-- 예쁜 버튼 -->
-			<div class="img-upload"  >
-				<div class="img-form-input" >
-					<label for="file-ip-1" >Upload Image</label>
+			<div class="img-upload">
+				<div class="img-form-input">
+					<label for="file-ip-1">Upload Image</label>
 					<input type="file" id="file-ip-1" accept="image/*" onchange="showPreviewImg(event);">
 					<div class="img-preview">
 						<img id="file-ip-1-preview">
 					</div>
 				</div>
-				
 			</div>
-			
-			<div class="buttons-box"> 
+			<div class="buttons-box">
 				<div id="contenar">
-                    <div id="filters">
-                        <div style="border: 2px solid red;"></div>
-                        <div class="filter">
-                            <img class="filter-example"
-                                src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg" />
-                        </div>
-                        <div class="filter">
-                            <img class="filter-example"
-                                src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg" />
-                        </div>
-                        <div class="filter">
-                            <img class="filter-example"
-                                src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg" />
-                        </div>
-                        <div class="filter"></div>
-                        <div class="filter"></div>
-                        <div class="filter"></div>
-                        <div class="filter"></div>
-                        <div class="filter"></div>
-                        <div class="filter"></div>
-                        
-                     
-
-
-                    </div>
-
-                    <div id="slider">
-                        <input type="range" id="slid" min="0" max="50" value="0" oninput="slid()" />
-                        <div id="cerlc"></div>
-                    </div>
-                    <div class="edit-filter">
-
-                    </div>
-
-                </div>
+					<div id="filters">
+						<div style="border: 2px solid red;"></div>
+						<div class="filter">
+							<img class="filter-example"
+								src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg" />
+						</div>
+						<div class="filter">
+							<img class="filter-example"
+								src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg" />
+						</div>
+						<div class="filter">
+							<img class="filter-example"
+								src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg" />
+						</div>
+					</div>
+					<div id="slider">
+						<input type="range" id="slid" min="0" max="50" value="0" oninput="slid()" />
+						<div id="cerlc"></div>
+					</div>
+					<div class="edit-filter">
+					</div>
+				</div>
 			</div>
-
 		</div>
-
 	</div>
 
 	<!-- 두 번째 Modal -->
 	<div class="btn-modal">
 		<!-- 두 번째 Modal의 내용 -->
 		<div class="modal-content">
-			<a>필터 업로드</a>
+			<a class="upload-text">Filter Upload</a>
 			<a class="modal-close">x</a>
-
-			<!-- 원래 쓰던 버튼 -->
-			<!-- <div class="upload-box">
-				<input type="file" onchange="readURL(this);"> 
-<div class="preview-container"><img id="preview" class="preview"/></div>
-			</div> -->
-
-			<!-- 예쁜 버튼 -->
-			<div class="filter-upload">
-				<div class="filter-form-input">
-					<label for="file-ip-2">Upload filter</label>
-					<input type="file" id="file-ip-2" accept="filter/*" onchange="showPreviewFilter(event);">
-					<div class="filter-preview">
-						<img id="file-ip-2-preview">
+			<div class="filter-modal-box">
+				<!-- 예쁜 버튼 -->
+				<div class="filter-upload">
+					<div class="filter-form-input">
+						<label for="file-ip-2">Upload filter</label>
+						<input type="file" id="file-ip-2" accept="filter/*" onchange="showPreviewFilter(event);">
+						<div class="filter-preview">
+							<img id="file-ip-2-preview">
+						</div>
 					</div>
+				</div>
+			</div>
+			<!-- 아래 박스 -->
+			<div class="filter-modal-box-down">
+				<!-- 필터 제목 적는곳 -->
+				<input type="text" id="filter-title" placeholder="title" class="post_filter_title">
+				<div class="img_modal_button">
+					<button type="button" onclick="post()" class="m2_start"
+						style="background-color: #636363;">필터추가하기</button>
 				</div>
 			</div>
 		</div>
 	</div>
 
+	<!-- 게시물 상세보기 Modal -->
+	<div class="btn-modal">
+		<!-- 게시물 상세보기 Modal의 내용 -->
+		<div class="detail-modal-content">
 
+			<div class="detail-big-box">
+				<!-- 이미지 -->
+				<div class="detail-box1">
+					<div class="product-title">
+						<div class="product-img-div">
+							<img class="product-img"
+								src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg">
+						</div>
+					</div>
+				</div>
+				<!-- 글 -->
+				<div class="detail-box2">
+					<a class="modal-close">x</a>
+					<div class="user-box">
+						<span class="user">dsfasdffs</span>
+					</div>
+					<hr>
+					<div class="comment-box">
+						<span class="comment">dsfasdffs</span>>
+					</div>
 
+					<hr>
+					<div class="write-comment">
+						<input type="text" id="comment-title" placeholder="댓글 작성하기" class="post_detail_comment">
+						<div class="comment_modal_button">
+							<button type="button" onclick="post()" class="m3_start"
+								style="background-color: #636363;"> 작성하기</button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+	</div>
+	</div>
 </body>
 <script src="static/js/main.js"></script>
 <script src="static/js/filterpage.js"></script>

@@ -17,12 +17,16 @@
 		<!-- img, next, right, close -->
 		<img src="" />
 		<button class="prev">
-			<< /button>
+			< </button>
 				<button class="next">></button>
 				<button class="close">x</button>
 	</div>
 	<section>
 		<h3>what filter do you like</h3>
+		<button onclick="LoginPage()" class="ml_start">로그인/회원가입</button>
+		<button onclick="handleLogout()" class="ml_start">로그아웃</button>
+		<button onclick="ProfilePage()" class="ml_start">프로필</button>
+
 		<nav>
 			<ul>
 				<li><a href="#" class="active">post</a></li>
@@ -31,8 +35,10 @@
 		</nav>
 		<p class="desc">
 			hello. Welcome to the filter studio.<br /> Choose any filter you like. We will change your
-			picture. If you
-			don't see the filter you want, add a new one.</p>
+			picture.
+			<br>
+			If you don't see the filter you want, add a new one.
+		</p>
 		<div class="gallery-container">
 
 			<!-- 슬라이드 -->
@@ -41,110 +47,8 @@
 					<div class="slide_box">
 						<div class="slide_list clearfix">
 							<div class="slide_content slide01">
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg"
-										alt="blueberries or chihuahua" /></div>
-								</p>
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/bde79816-856b-4f39-9ad8-54b7d0d36c75/image.png"
-										alt="popcorn animals" /></div>
-								</p>
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/fed5e6ff-cade-493c-a5f9-c479ebc6c917/image.jpg"
-										alt="rice noodle eggroll" /></div>
-								</p>
-
-
-							</div>
-
-							<div class="slide_content slide02">
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg"
-										alt="blueberries or chihuahua" /></div>
-								</p>
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/bde79816-856b-4f39-9ad8-54b7d0d36c75/image.png"
-										alt="popcorn animals" /></div>
-								</p>
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/fed5e6ff-cade-493c-a5f9-c479ebc6c917/image.jpg"
-										alt="rice noodle eggroll" /></div>
-								</p>
-							</div>
-							<div class="slide_content slide03">
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg"
-										alt="blueberries or chihuahua" /></div>
-								</p>
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/bde79816-856b-4f39-9ad8-54b7d0d36c75/image.png"
-										alt="popcorn animals" /></div>
-								</p>
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/fed5e6ff-cade-493c-a5f9-c479ebc6c917/image.jpg"
-										alt="rice noodle eggroll" /></div>
-								</p>
-							</div>
-							<div class="slide_content slide04">
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg"
-										alt="blueberries or chihuahua" /></div>
-								</p>
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/bde79816-856b-4f39-9ad8-54b7d0d36c75/image.png"
-										alt="popcorn animals" /></div>
-								</p>
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/fed5e6ff-cade-493c-a5f9-c479ebc6c917/image.jpg"
-										alt="rice noodle eggroll" /></div>
-								</p>
-							</div>
-							<div class="slide_content slide05">
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg"
-										alt="blueberries or chihuahua" /></div>
-								</p>
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/bde79816-856b-4f39-9ad8-54b7d0d36c75/image.png"
-										alt="popcorn animals" /></div>
-								</p>
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/fed5e6ff-cade-493c-a5f9-c479ebc6c917/image.jpg"
-										alt="rice noodle eggroll" /></div>
-								</p>
-							</div>
-
-							<div class="slide_content slide06">
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg"
-										alt="blueberries or chihuahua" /></div>
-								</p>
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/bde79816-856b-4f39-9ad8-54b7d0d36c75/image.png"
-										alt="popcorn animals" /></div>
-								</p>
-								<p>
-								<div class="gallery-item"><img
-										src="https://velog.velcdn.com/images/taeeuno_o/post/fed5e6ff-cade-493c-a5f9-c479ebc6c917/image.jpg"
-										alt="rice noodle eggroll" /></div>
-								</p>
+								<div id="table" class="table">
+								</div>
 							</div>
 						</div>
 						<!-- // 슬라이드 끝-->
@@ -153,9 +57,8 @@
 
 					<!-- // 슬라이드 버튼 시작-->
 					<div class="slide_btn_box">
-						<button type="button" class="slide_btn_prev">
-							<< /button>
-								<button type="button" class="slide_btn_next">></button>
+						<button type="button" class="slide_btn_prev"><</button>
+						<button type="button" class="slide_btn_next">></button>
 					</div>
 					<!-- //슬라이드 버튼 박스 -->
 					<ul class="slide_pagination"></ul>
@@ -169,11 +72,17 @@
 
 				<!-- 모달창 만들기 -->
 				<div class="upload-btn-container">
-					<!-- 이미지 업로드  Modal을 여는 클래스 -->
-					<button class="modal-btn">이미지업로드</button>
+					<div class="upload-btn-container-box">
+						<!-- 이미지 업로드  Modal을 여는 클래스 -->
+						<button class="modal-btn">이미지업로드</button>
+					</div>
+					<div class="upload-btn-container-box">						<!-- 파일 업로드  Modal을 여는 클래스 -->
+						<button class="modal-btn">필터 업로드</button>
+					</div>
+					<div class="upload-btn-container-box">						<button class="modal-btn">게시물 상세보기</button>
+					</div>
 
-					<!-- 파일 업로드  Modal을 여는 클래스 -->
-					<button class="modal-btn">필터 업로드</button>
+
 
 				</div>
 			</div>
@@ -236,19 +145,13 @@
 
 	</div>
 
-	<!-- 두 번째 Modal -->
-	<div class="btn-modal">
-		<!-- 두 번째 Modal의 내용 -->
-		<div class="modal-content">
-			<a>필터 업로드</a>
-			<a class="modal-close">x</a>
-
-			<!-- 원래 쓰던 버튼 -->
-			<!-- <div class="upload-box">
-				<input type="file" onchange="readURL(this);"> 
-<div class="preview-container"><img id="preview" class="preview"/></div>
-			</div> -->
-
+<!-- 두 번째 Modal -->
+<div class="btn-modal">
+	<!-- 두 번째 Modal의 내용 -->
+	<div class="modal-content">
+		<a class="upload-text">Filter Upload</a>
+		<a class="modal-close">x</a>
+		<div class="filter-modal-box">
 			<!-- 예쁜 버튼 -->
 			<div class="filter-upload">
 				<div class="filter-form-input">
@@ -260,15 +163,76 @@
 				</div>
 			</div>
 		</div>
+		<!-- 아래 박스 -->
+		<div class="filter-modal-box-down">
+			<!-- 필터 제목 적는곳 -->
+			<input type="text" id="filter-title" placeholder="title" class="post_filter_title">
+			<div class="img_modal_button">
+				<button type="button" onclick="post()" class="m2_start"
+					style="background-color: #636363;">필터추가하기</button>
+			</div>
+		</div>
 	</div>
+</div>
 
+<!-- 게시물 상세보기 Modal -->
+<div class="btn-modal">
+	<!-- 게시물 상세보기 Modal의 내용 -->
+	<div class="detail-modal-content">
 
+		<div class="detail-big-box">
+			<!-- 이미지 -->
+			<div class="detail-box1">
+				<div class="product-title">
+					<div class="product-img-div">
+						<img class="product-img"
+							src="https://velog.velcdn.com/images/taeeuno_o/post/cf1cae62-9f25-4e32-9c2e-f892e1d75ed6/image.jpg">
+					</div>
+				</div>
+			</div>
+			<!-- 글 -->
+			<div class="detail-box2">
+				<a class="modal-close">x</a>
+				<div class="detail-title-box">
+					<span class="user">dsfasdffs</span>
+				</div>
+				<hr>
 
+				<!-- 상세페이지 내용 작성 div -->
+				<div class="detail-content-box" style="overflow:auto;">
+					<a> 상세페이지 게시물 내용 작성하는 div 입니다. 스크롤 기능 있음</a>
+
+				</div>
+				<hr>
+				<!-- 작성한 댓글들이 달리는 div -->
+				<div class="detail-comment-box" style="overflow:auto;">
+					<a> 댓글 작성하는 div 입니다. 스크롤 기능 있음</a>
+				</div>
+
+				<hr>
+				<!-- 댓글 작성하는 div -->
+				<div class="write-comment">
+					<input type="text" id="comment-title" placeholder="댓글 작성하기" class="post_detail_comment">
+					<div class="comment_modal_button">
+						<button type="button" onclick="post()" class="m3_start" style="background-color: #636363;">
+							작성하기</button>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+</div>
+</div>
+</div>
 </body>
 <script src="static/js/main.js"></script>
-<script src="static/js/filterpage.js"></script>
 
-<script src="static/js/main_slide.js"></script>
+<!-- <script src="static/js/filterpage.js"></script> -->
+
+<!-- <script src="static/js/main_slide.js"></script> -->
 
 
 

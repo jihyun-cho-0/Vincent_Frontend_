@@ -36,14 +36,20 @@ async function handleSignIn() {
         })
     })
 
-    .then(response => {
-        return response.json();
-    })
-    // Promise 안에 담긴 데이터 꺼내오기
-    .then(data => {
-        console.log(data) 
+    const response_json = await response.json()
 
-});
+    localStorage.setItem("access", response_json.access);
+    localStorage.setItem("refresh", response_json.refresh);
+
+    const base64Url = response_json.access.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+
+    }).join(''));
+
+    localStorage.setItem("payload", jsonPayload);
+    move_page('main.html')
 }
 handleSignIn()
 
@@ -56,6 +62,8 @@ async function handleMock() {
         },
         method: 'GET',
     })
+    const response_json = await response.json()
+    console.log(response_json)
 }
 
 async function handleLogout() {
@@ -72,57 +80,32 @@ function move_page(page) {
     window.location.href = page
 }
 
-async function handleSocial() {
-    const clientID = process.env.SOCIAL_AUTH_GITHUB_CLIENT_ID
-    const clientSecret = process.env.SOCIAL_AUTH_GITHUB_SECRET
-     
-    const app = express()
-     
-    app.get('/callback', (req, res) => {
-      //'/callback': 인증 정보를 바탕으로 access token을 받아올 수 있도록 도와주는 라우터이다.
-      const requestToken = req.query.code //이 req.query.code가 위의 'code=[Authorization Code]' 에 해당한다.
-      axios({
-        method: 'post',
-        url: `https://github.com/login/oauth/access_token?client_id=${clientID}&client_secret=${clientSecret}&code=${requestToken}`,
-        headers: {
-          accept: 'application/json',
-        },
-      }).then((response) => {
-        const accessToken = response.data.access_token //Github가 access_token을 응답으로 줄 것이다. 
-        res.redirect(`/welcome.html?access_token=${accessToken}`) //그리고 이렇게 accessToken을 받은 사용자에 한해서만 welcome 페이지로 리다이렉트 된다. 
-        //그리고 welcome 페이지를 구성하는 client에서 get fetch를 통해 token및 데이터를 받아오게 된다.
-      }).catch((err) => {
-          console.error(err)
-      })
+async function handleGithub() {
+    const response = await fetch('http://localhost:8000/users/github/callback/?code=${code}', {
+      
+      }.then((res) => {
+        console.log(res); //사용자 정보가 들어있는 json이 출력되어야 함
+
+        localStorage.setItem("access", response_json.access);
+        localStorage.setItem("refresh", response_json.refresh);
+
+})
+)}
+
+
+async function handleGoogle() {
+    const response = await fetch('http://localhost:8000/users/google/callback/?code=${code}', {
+
+    }.then((res) => {
+        console.log(response);
+
     })
-
-    fetch('//api.github.com/user', {
-    headers: {
-      // 이와 같이 Authorization 헤더에 `token ${token}`과 같이
-      // 인증 코드를 전송하는 형태를 가리켜 Bearer Token 인증이라고 한다.
-      Authorization: 'token ' + token
-    }
-  })
-    .then(res => res.json())
-    .then(res => { 
-      // 이 응답에 대한 문서는 GitHub 공식 문서를 참조하세요
-      // https://developer.github.com/v3/users/#get-the-authenticated-user
- 
-      document.body.innerText = `${res.name}님 환영합니다!`
-    })
-
-
-
-}
-
+)}
 
 //---------------------------------------------------------------------------------------------//
 //---------------------------------------------------------------------------------------------//
 //signUp//
 // 입력 없으면 표시 
-window.onload = () => {
-    console.log("load")
-}
 
 async function check_value() {
     const forms = document.getElementsByClassName('validation-form');

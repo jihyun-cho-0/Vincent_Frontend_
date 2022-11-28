@@ -83,44 +83,8 @@ function move_page(page) {
 }
 
 async function handleSocial() {
-    const clientID = process.env.SOCIAL_AUTH_GITHUB_CLIENT_ID
-    const clientSecret = process.env.SOCIAL_AUTH_GITHUB_SECRET
-     
-    const app = express()
-     
-    app.get('/callback', (req, res) => {
-      //'/callback': 인증 정보를 바탕으로 access token을 받아올 수 있도록 도와주는 라우터이다.
-      const requestToken = req.query.code //이 req.query.code가 위의 'code=[Authorization Code]' 에 해당한다.
-      axios({
-        method: 'post',
-        url: `https://github.com/login/oauth/access_token?client_id=${clientID}&client_secret=${clientSecret}&code=${requestToken}`,
-        headers: {
-          accept: 'application/json',
-        },
-      }).then((response) => {
-        const accessToken = response.data.access_token //Github가 access_token을 응답으로 줄 것이다. 
-        res.redirect(`/welcome.html?access_token=${accessToken}`) //그리고 이렇게 accessToken을 받은 사용자에 한해서만 welcome 페이지로 리다이렉트 된다. 
-        //그리고 welcome 페이지를 구성하는 client에서 get fetch를 통해 token및 데이터를 받아오게 된다.
-      }).catch((err) => {
-          console.error(err)
-      })
-    })
-
-    fetch('//api.github.com/user', {
-    headers: {
-      // 이와 같이 Authorization 헤더에 `token ${token}`과 같이
-      // 인증 코드를 전송하는 형태를 가리켜 Bearer Token 인증이라고 한다.
-      Authorization: 'token ' + token
-    }
-  })
-    .then(res => res.json())
-    .then(res => { 
-      // 이 응답에 대한 문서는 GitHub 공식 문서를 참조하세요
-      // https://developer.github.com/v3/users/#get-the-authenticated-user
- 
-      document.body.innerText = `${res.name}님 환영합니다!`
-    })
-
+    
+    window.location.href="http://127.0.0.1:5500/main.html"
 
 
 }
